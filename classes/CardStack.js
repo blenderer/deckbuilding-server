@@ -17,17 +17,9 @@ CardStack.prototype.takeTopCard = function(cardsToTake) {
 };
 
 CardStack.prototype.shuffle = function() {
-    this.cards.forEach(function(card) {
-        console.log(card.name);
-    });
-
-    console.log('----Shuffling!----');
-
     shuffle(this.cards);
 
-    this.cards.forEach(function(card) {
-        console.log(card.name);
-    });
+    console.log('Deck is shuffled');
 }
 
 
