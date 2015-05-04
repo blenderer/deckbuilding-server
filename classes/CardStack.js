@@ -18,8 +18,6 @@ CardStack.prototype.takeTopCard = function(cardsToTake) {
 
 CardStack.prototype.shuffle = function() {
     shuffle(this.cards);
-
-    console.log('Deck is shuffled');
 }
 
 

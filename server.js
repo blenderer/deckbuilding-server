@@ -47,7 +47,6 @@ p1.useCardInHand(2);
 p1.useCardInHand(1);
 p1.useCardInHand(0);
 
-console.log(p1.deck.cards.length);
 
 p1.draw(5);
 
@@ -57,4 +56,35 @@ p1.useCardInHand(2);
 p1.useCardInHand(1);
 p1.useCardInHand(0);
 
-console.log(p1.discardPile.cards.length);
+p1.draw(5);
+
+p1.useCardInHand(4);
+p1.useCardInHand(3);
+p1.useCardInHand(2);
+p1.useCardInHand(1);
+p1.useCardInHand(0);
+
+
+p1.draw(5);
+
+p1.useCardInHand(4);
+p1.useCardInHand(3);
+p1.useCardInHand(2);
+p1.useCardInHand(1);
+p1.useCardInHand(0);
+
+p1.draw(5);
+
+p1.useCardInHand(4);
+p1.useCardInHand(3);
+p1.useCardInHand(2);
+p1.useCardInHand(1);
+p1.useCardInHand(0);
+
+p1.draw(5);
+
+p1.useCardInHand(4);
+p1.useCardInHand(3);
+p1.useCardInHand(2);
+p1.useCardInHand(1);
+p1.useCardInHand(0);

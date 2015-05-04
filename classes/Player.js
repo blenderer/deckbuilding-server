@@ -16,28 +16,39 @@ Player.prototype.useCardInHand = function(index) {
 
     // Add to discard Pile
     this.discardPile.add(removedCard);
-
-    console.log('Used card at index: ' + index);
 }
 
 Player.prototype.draw = function(drawQuantity) {
-    for (var i=0; i<drawQuantity; i++) {
-        var nextCard = this.deck.takeTopCard();
+    var drawsLeft = drawQuantity;
 
-        if (!nextCard) {
-            this.replenishDeck();
-        }
+    var nextCard = this.deck.takeTopCard();
 
-        this.hand.add(nextCard);
-        console.log(this.name + ' draws a card.');
+    if (!nextCard) {
+        this.replenishDeck(drawQuantity);
+        return false;
+    }
+
+    this.hand.add(nextCard);
+
+    if (--drawQuantity > 0) {
+        this.draw(drawQuantity);
     }
 }
 
-Player.prototype.replenishDeck = function() {
-    this.deck.cards.concat(this.discardPile.cards);
-    this.discardPile.shuffle();
+Player.prototype.replenishDeck = function(cardsRemainingToDraw) {
+    // assign a copy of the variable, because it will change
+    var discardPileLength = this.discardPile.cards.length;
 
-    console.log(this.name + ' replenishes the deck.');
+    if (discardPileLength < 1) {
+        return false;
+    }
+
+    for (var i=0; i<discardPileLength; i++) {
+        this.deck.cards.push(this.discardPile.cards.pop());
+    }
+
+    this.discardPile.shuffle();
+    this.draw(cardsRemainingToDraw);
 }
 
 module.exports = Player;
