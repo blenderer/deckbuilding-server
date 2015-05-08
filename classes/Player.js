@@ -8,6 +8,30 @@ var Player = function (name, deck) {
     this.hand = new CardGroup([]);
     this.discardPile = new CardStack([]);
     this.permanents = new CardGroup([]);
+
+    this.resources = {
+        power: 0,
+        valor: 0,
+        gold: 0
+    }
+}
+
+Player.prototype.newTurn = function() {
+    // reset the resources to zero
+    this.resources.forEach(function(resource) {
+        resource = 0;
+    });
+
+    // draw 5 cards
+    this.draw(5);
+}
+
+Player.prototype.purchase = function(card) {
+    this.add(card);
+}
+
+Player.prototype.benefit = function(card) {
+        this.resources.power += card.resources.power;
 }
 
 Player.prototype.useCardInHand = function(index) {

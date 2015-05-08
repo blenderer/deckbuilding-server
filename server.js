@@ -28,63 +28,36 @@ cards.push(new Card(dataCard));
 cards.push(new Card(dataCard));
 cards.push(new Card(dataCard));
 cards.push(new Card(dataCard));
-
 cards.push(new Card(dataCard2));
 cards.push(new Card(dataCard2));
 cards.push(new Card(dataCard2));
 
 var deck = new CardStack(cards);
 
+
+cards = [];
+
+cards.push(new Card(dataCard));
+cards.push(new Card(dataCard));
+cards.push(new Card(dataCard));
+cards.push(new Card(dataCard));
+cards.push(new Card(dataCard));
+cards.push(new Card(dataCard));
+cards.push(new Card(dataCard));
+cards.push(new Card(dataCard2));
+cards.push(new Card(dataCard2));
+cards.push(new Card(dataCard2));
+
+var deck2 = new CardStack(cards);
+
+var purchaseDeck = new CardStack(cards);
+purchaseDeck.shuffle();
+
 var p1 = new Player('Eric Harrison', deck);
+var p2 = new Player('Watson', deck2);
 
-p1.deck.shuffle();
-
-p1.draw(5);
-
-p1.useCardInHand(4);
-p1.useCardInHand(3);
-p1.useCardInHand(2);
-p1.useCardInHand(1);
-p1.useCardInHand(0);
+console.log(p1.deck.cards.length, purchaseDeck.cards.length);
+p1.deck.add(purchaseDeck.takeTopCard());
+console.log(p1.deck.cards.length, purchaseDeck.cards.length);
 
 
-p1.draw(5);
-
-p1.useCardInHand(4);
-p1.useCardInHand(3);
-p1.useCardInHand(2);
-p1.useCardInHand(1);
-p1.useCardInHand(0);
-
-p1.draw(5);
-
-p1.useCardInHand(4);
-p1.useCardInHand(3);
-p1.useCardInHand(2);
-p1.useCardInHand(1);
-p1.useCardInHand(0);
-
-
-p1.draw(5);
-
-p1.useCardInHand(4);
-p1.useCardInHand(3);
-p1.useCardInHand(2);
-p1.useCardInHand(1);
-p1.useCardInHand(0);
-
-p1.draw(5);
-
-p1.useCardInHand(4);
-p1.useCardInHand(3);
-p1.useCardInHand(2);
-p1.useCardInHand(1);
-p1.useCardInHand(0);
-
-p1.draw(5);
-
-p1.useCardInHand(4);
-p1.useCardInHand(3);
-p1.useCardInHand(2);
-p1.useCardInHand(1);
-p1.useCardInHand(0);
