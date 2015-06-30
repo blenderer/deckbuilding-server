@@ -3,8 +3,37 @@ var net = require('net');
 var HOST = '127.0.0.1';
 var PORT = 6969;
 
+var _ = require('lodash');
+
+var dataCard = {
+    name: "Eric Harrison",
+    cardText: "Best card ever!",
+    cost: "0p",
+    benefit: "1d + 2v",
+    image: null
+}
+
+var dataCard2 = {
+    name: "zzzzzzz",
+    cardText: "eagear",
+    cost: "0p",
+    benefit: "1d + 2v",
+    image: null
+}
+
+var Server = require('./classes/Server.js');
+var Lobby = require('./classes/Lobby.js');
+var Player = require('./classes/Player.js');
 
 
+var server = new Server();
+var eric = new Player('Eric', '127.0.0.1');
+
+var newLob = new Lobby('Eric\'s game', ["base"], 500, eric);
+var newLobId = newLob.getId();
+
+server.addLobby(newLob);
+server.startGame(newLobId);
 
 
 
@@ -38,7 +67,7 @@ console.log('Server listening on ' + HOST +':'+ PORT);
 
 
 
-
+/*
 
 
 
@@ -46,7 +75,7 @@ console.log('Server listening on ' + HOST +':'+ PORT);
 var Card = require('./classes/Card.js');
 var CardGroup = require('./classes/CardGroup.js');
 var CardStack = require('./classes/CardStack.js');
-var Player = require('./classes/Player.js');
+
 
 var dataCard = {
     name: "Eric Harrison",
@@ -93,5 +122,5 @@ var p1 = new Player('Eric Harrison', decks[0]);
 var p2 = new Player('Watson', decks[1]);
 
 p1.deck.add(purchaseDeck.takeTopCard());
-
+*/
 

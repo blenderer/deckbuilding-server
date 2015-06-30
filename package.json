@@ -6,7 +6,11 @@
   "dependencies": {
     "shuffle-array": "^0.1.0"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "lodash": "^3.9.3",
+    "prompt": "^0.2.14",
+    "prompt-sync": "^1.0.0"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
