@@ -1,10 +1,10 @@
 var CardGroup = require('./CardGroup.js');
 var CardStack = require('./CardStack.js');
 
-var PlayerArea = function (name, deck, ip) {
-    this.name = name;
+var PlayerArea = function (deck) {
+    //this.name = name;
     this.deck = deck;
-    this.ip = ip;
+    //this.ip = ip;
 
     this.hand = new CardGroup([]);
     this.discardPile = new CardStack([]);

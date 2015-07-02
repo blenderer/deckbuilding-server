@@ -13,4 +13,8 @@ Lobby.prototype.getId = function() {
     return this.id;
 }
 
+Lobby.prototype.addPlayer = function(player) {
+  this.players.push(player);
+}
+
 module.exports = Lobby;

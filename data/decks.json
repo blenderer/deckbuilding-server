@@ -1,6 +1,6 @@
 {
     "base": [
-        { 
+        {
             "card": "test",
             "quantity": 15
         },
@@ -14,5 +14,15 @@
             "card": "banana",
             "quantity": 22
         }
+    ],
+    "starter": [
+      {
+        "card": "punch",
+        "quantity": 7
+      },
+      {
+        "card": "vulnerability",
+        "quantity": 3
+      }
     ]
 }

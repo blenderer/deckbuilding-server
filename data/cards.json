@@ -19,5 +19,19 @@
         "cost": "1p",
         "benefit": "1d + 2v",
         "image": null
+    },
+    "punch": {
+      "name": "Punch",
+      "cardText": "pawnch!",
+      "cost": "0p",
+      "benefit": "1d",
+      "image": null
+    },
+    "vulnerability": {
+      "name": "Vulnerability",
+      "cardText": "fodder",
+      "cost": "0p",
+      "benefit": "0d",
+      "image": null
     }
 }
