@@ -12,10 +12,6 @@ Game.prototype.start = function() {
   this.board.start();
 }
 
-Game.prototype.getCardGroupSizes = function() {
-  return this.board.getCardGroupSizes();
-}
-
 Game.prototype.receivePlayerOption = function(player, type, choice) {
   if (choices[type].onTurnOnly) {
     var playerAreaWithTurn = this.board.getPlayerAreaWithTurn();

@@ -7,7 +7,7 @@
     "inGame": true,
     "onTurnOnly": true
   },
-  "endTurn": {
+  "pass": {
     "inGame": true,
     "onTurnOnly": true
   }

@@ -25,6 +25,8 @@ var Board = function (deck, players) {
 }
 
 Board.prototype.start = function() {
+  this.purchaseDeck.shuffle();
+
   // flip a coin, winner goes first
   var turnCoin = random.integer(0, this.playerAreas.length - 1);
   this.playerAreas[turnCoin].turn = true;
@@ -39,7 +41,7 @@ Board.prototype.start = function() {
 }
 
 Board.prototype.getPlayerAreaWithTurn = function() {
-  return _.find(this.playerAreas, {turn: true});
+  return _.find(this.playerAreas, {"turn": true});
 }
 
 Board.prototype.nextTurn = function() {
@@ -52,6 +54,8 @@ Board.prototype.nextTurn = function() {
   else {
     this.playerAreas[currentIndex + 1].startTurn();
   }
+
+  this.replenish();
 }
 
 Board.prototype.replenish = function() {

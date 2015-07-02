@@ -16,6 +16,10 @@ server.addLobby(newLob);
 
 var game = server.startGame(newLob);
 
+
+server.receivePlayerOption(game.id, bob.id, "pass");
+
+
 server.receivePlayerOption(game.id, eric.id, "play", 0);
 server.receivePlayerOption(game.id, eric.id, "play", 0);
 server.receivePlayerOption(game.id, eric.id, "play", 0);
@@ -23,7 +27,14 @@ server.receivePlayerOption(game.id, eric.id, "play", 0);
 server.receivePlayerOption(game.id, eric.id, "play", 0);
 
 
-server.receivePlayerOption(game.id, eric.id, "purchase", 3);
+server.receivePlayerOption(game.id, eric.id, "purchase", 0);
+server.receivePlayerOption(game.id, eric.id, "purchase", 0);
+server.receivePlayerOption(game.id, eric.id, "purchase", 0);
+server.receivePlayerOption(game.id, eric.id, "purchase", 0);
+
+server.receivePlayerOption(game.id, eric.id, "pass");
+
+console.log(game.board.getCardGroupSizes());
 
 
 /*

@@ -1,5 +1,6 @@
 var CardGroup = require('./CardGroup.js');
 var CardStack = require('./CardStack.js');
+var _ = require('lodash');
 
 var PlayerArea = function (deck, player, board) {
     this.player = player;
@@ -14,6 +15,8 @@ var PlayerArea = function (deck, player, board) {
     this.stagingArea = new CardGroup([]);
     this.permanents = new CardGroup([]);
 
+    this.playingACard = false;
+
     this.turn = false;
 
     this.resources = {
@@ -25,10 +28,14 @@ var PlayerArea = function (deck, player, board) {
 }
 
 PlayerArea.prototype.logAction = function(actor, action, subject, initiatorSubject) {
-  var text = actor + " " + action + ": " + subject;
+  var text = actor + " " + action;
 
-  if (initiatorSubject) {
-    text += " with " + initiatorSubject;
+  if (subject) {
+    text += ": " + subject;
+
+    if (initiatorSubject) {
+      text += " with " + initiatorSubject;
+    }
   }
 
   console.log(text);
@@ -41,21 +48,43 @@ PlayerArea.prototype.receiveOption = function(type, choice) {
   else if (type === "purchase") {
     this.purchase(choice);
   }
+  else if (type === "pass") {
+    this.board.nextTurn();
+  }
+}
+
+PlayerArea.prototype.playRest = function() {
+  while (this.hand.cards.length > 0) {
+    this.useCardInHand(0);
+  }
+}
+
+PlayerArea.prototype.addStagedToDiscard = function() {
+  while (this.stagingArea.cards.length > 0) {
+    var addMeToDiscardPile = this.stagingArea.remove(0);
+    this.discardPile.add(addMeToDiscardPile);
+  }
 }
 
 PlayerArea.prototype.startTurn = function() {
     this.turn = true;
+    this.logAction(this.playerName, "started his turn");
 }
 
 PlayerArea.prototype.endTurn = function() {
+  this.playRest();
+  this.addStagedToDiscard();
+
   // reset the resources to zero
-  this.resources.forEach(function(resource) {
+  _.each(this.resources, function(resource) {
       resource = 0;
   });
 
-  this.draw(5);
-
   this.turn = false;
+
+  this.logAction(this.playerName, "ended his turn");
+
+  this.draw(5);
 }
 
 PlayerArea.prototype.purchase = function(index) {
