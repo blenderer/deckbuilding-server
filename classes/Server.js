@@ -1,5 +1,6 @@
 var _ = require('lodash');
 var Game = require('./Game.js');
+var DeckBuilder = require('./DeckBuilder.js');
 
 var Server = function () {
 
@@ -11,9 +12,11 @@ Server.prototype.startGame = function(lobbyId) {
 
     var lobby = _.find(this.lobbies, {"id": lobbyId});
 
-    var game = new Game(lobby.players, []);
+    var db = new DeckBuilder();
+    var deck = db.createDeck(lobby.deckStrings);
 
-    console.log(game);
+    var game = new Game(lobby.players, deck);
+
 }
 
 Server.prototype.addLobby = function(lobby) {

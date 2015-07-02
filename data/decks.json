@@ -1,0 +1,18 @@
+{
+    "base": [
+        { 
+            "card": "test",
+            "quantity": 15
+        },
+        {
+            "card": "test2",
+            "quantity": 45
+        }
+    ],
+    "bananas": [
+        {
+            "card": "banana",
+            "quantity": 22
+        }
+    ]
+}

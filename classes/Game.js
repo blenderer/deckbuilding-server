@@ -1,4 +1,4 @@
-var Board = require('Board.js');
+var Board = require('./Board.js');
 
 var Game = function (players, deck) {
     

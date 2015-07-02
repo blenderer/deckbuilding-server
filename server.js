@@ -1,8 +1,3 @@
-var net = require('net');
-
-var HOST = '127.0.0.1';
-var PORT = 6969;
-
 var _ = require('lodash');
 
 var dataCard = {
@@ -28,15 +23,19 @@ var Player = require('./classes/Player.js');
 
 var server = new Server();
 var eric = new Player('Eric', '127.0.0.1');
+var bob = new Player('Bob', '192.168.0.1');
 
-var newLob = new Lobby('Eric\'s game', ["base"], 500, eric);
+var newLob = new Lobby('Eric\'s game', ["base", "bananas"], 500, eric);
 var newLobId = newLob.getId();
 
 server.addLobby(newLob);
 server.startGame(newLobId);
 
+/*
+var net = require('net');
 
-
+var HOST = '127.0.0.1';
+var PORT = 6969;
 
 // Create a server instance, and chain the listen function to it
 // The function passed to net.createServer() becomes the event handler for the 'connection' event
@@ -64,7 +63,7 @@ net.createServer(function(sock) {
 
 console.log('Server listening on ' + HOST +':'+ PORT);
 
-
+*/
 
 
 /*

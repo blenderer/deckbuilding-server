@@ -1,0 +1,23 @@
+{
+    "test": {
+        "name": "Eric Harrison",
+        "cardText": "Best card ever!",
+        "cost": "0p",
+        "benefit": "1d + 2v",
+        "image": null
+    },
+    "test2": {
+        "name": "zzzzzzz",
+        "cardText": "eagear",
+        "cost": "0p",
+        "benefit": "1d + 2v",
+        "image": null
+    },
+    "banana": {
+        "name": "Banana",
+        "cardText": "+1/+1 to any minion.",
+        "cost": "1p",
+        "benefit": "1d + 2v",
+        "image": null
+    }
+}

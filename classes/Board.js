@@ -5,12 +5,15 @@ var Player = require('./Player.js');
 var Board = function (deck) {
 
     this.lineup = new CardGroup([]);
-    this.purchaseDeck = new CardStack([]);
+    this.purchaseDeck = new CardStack(deck);
+
+    this.replenish();
+
+    console.log(this.lineup);
 }
 
 Board.prototype.start = function() {
     
-    this.replenish();
 }
 
 Board.prototype.replenish = function() {
