@@ -3,7 +3,7 @@ var CardStack = require('./CardStack.js');
 
 var PlayerArea = function (deck) {
     //this.name = name;
-    this.deck = deck;
+    this.deck = new CardStack(deck);
     //this.ip = ip;
 
     this.hand = new CardGroup([]);
@@ -74,6 +74,15 @@ PlayerArea.prototype.replenishDeck = function(cardsRemainingToDraw) {
 
     this.discardPile.shuffle();
     this.draw(cardsRemainingToDraw);
+}
+
+PlayerArea.prototype.getCardGroupSizes = function() {
+  return {
+    "deck": this.deck.cards.length,
+    "hand": this.hand.cards.length,
+    "discardPile": this.discardPile.cards.length,
+    "permanents": this.permanents.cards.length
+  };
 }
 
 module.exports = PlayerArea;

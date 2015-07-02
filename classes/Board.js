@@ -16,9 +16,12 @@ var Board = function (deck, players) {
     players.forEach(function(player) {
       var starterDeck = db.createDeck(["starter"]);
       self.playerAreas[player.id] = new PlayerArea(starterDeck);
-    });
+      var newPlayer = self.playerAreas[player.id];
 
-    console.log(this.playerAreas);
+      newPlayer.deck.shuffle();
+      newPlayer.draw(5);
+      console.log(newPlayer.getCardGroupSizes());
+    });
 
     this.replenish();
 }
