@@ -1,0 +1,14 @@
+{
+  "play": {
+    "inGame": true,
+    "onTurnOnly": true
+  },
+  "purchase": {
+    "inGame": true,
+    "onTurnOnly": true
+  },
+  "endTurn": {
+    "inGame": true,
+    "onTurnOnly": true
+  }
+}

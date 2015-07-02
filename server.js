@@ -12,10 +12,19 @@ var bob = new Player('Bob', '192.168.0.1');
 var newLob = new Lobby('Eric\'s game', ["base", "bananas"], 500, eric);
 newLob.addPlayer(bob);
 
-var newLobId = newLob.getId();
-
 server.addLobby(newLob);
-server.startGame(newLobId);
+
+var game = server.startGame(newLob);
+
+server.receivePlayerOption(game.id, eric.id, "play", 0);
+server.receivePlayerOption(game.id, eric.id, "play", 0);
+server.receivePlayerOption(game.id, eric.id, "play", 0);
+server.receivePlayerOption(game.id, eric.id, "play", 0);
+server.receivePlayerOption(game.id, eric.id, "play", 0);
+
+
+server.receivePlayerOption(game.id, eric.id, "purchase", 3);
+
 
 /*
 var net = require('net');
