@@ -10,9 +10,9 @@ var eric = new Player('Eric', '127.0.0.1');
 var bob = new Player('Bob', '192.168.0.1');
 
 var newLob = new Lobby('Eric\'s game', ["base", "bananas"], 500, eric);
-newLob.addPlayer(bob);
 
 server.addLobby(newLob);
+newLob.addPlayer(bob);
 
 var game = server.startGame(newLob);
 

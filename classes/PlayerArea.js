@@ -88,19 +88,49 @@ PlayerArea.prototype.endTurn = function() {
 }
 
 PlayerArea.prototype.purchase = function(index) {
-    var purchasedCard = this.board.lineup.remove(index);
+    var self = this;
 
-    this.discardPile.add(purchasedCard);
-    this.logAction(this.playerName, "purchased card", purchasedCard.name);
+    var wantedCard = this.board.lineup.cards[index];
+
+    if (this.canAfford(wantedCard)) {
+      var cardCost = wantedCard.getCost();
+
+      _.each(cardCost, function(resourceCost, key) {
+        self.resources[key] -= resourceCost;
+        console.log("spending " + resourceCost + " " + key);
+      });
+
+      var purchasedCard = this.board.lineup.remove(index);
+
+      this.discardPile.add(purchasedCard);
+      this.logAction(this.playerName, "purchased card", purchasedCard.name);
+    }
+
+
+}
+
+PlayerArea.prototype.canAfford = function(card) {
+  var cost = card.getCost();
+  return cost.power <= this.resources.power
+          && cost.valor <= this.resources.valor
+          && cost.gold <= this.resources.gold
 }
 
 PlayerArea.prototype.benefit = function(card) {
-        this.resources.power += card.resources.power;
 }
 
 PlayerArea.prototype.useCardInHand = function(index) {
+    var self = this;
+
     // remove a card
     var removedCard = this.hand.remove(index)
+
+    // benefit from card
+    var benefit = removedCard.getBenefit();
+
+    _.each(benefit, function(resource, key) {
+      self.resources[key] = self.resources[key] + resource;
+    });
 
     // Add to staging Pile
     this.stagingArea.add(removedCard);

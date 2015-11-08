@@ -2,14 +2,14 @@
     "test": {
         "name": "Eric Harrison",
         "cardText": "Best card ever!",
-        "cost": "0p",
+        "cost": "1p",
         "benefit": "1d + 2v",
         "image": null
     },
     "test2": {
         "name": "zzzzzzz",
         "cardText": "eagear",
-        "cost": "0p",
+        "cost": "2p",
         "benefit": "1d + 2v",
         "image": null
     },
@@ -24,14 +24,14 @@
       "name": "Punch",
       "cardText": "pawnch!",
       "cost": "0p",
-      "benefit": "1d",
+      "benefit": "1p",
       "image": null
     },
     "vulnerability": {
       "name": "Vulnerability",
       "cardText": "fodder",
       "cost": "0p",
-      "benefit": "0d",
+      "benefit": "0p",
       "image": null
     }
 }
